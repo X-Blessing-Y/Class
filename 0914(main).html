@@ -5,7 +5,8 @@
     </head>
      <body>
         <h1>標題1</h1>
-        <h2>標題2</h2>
+        <h2>標題2</h2>    橫列-->
+            <td><!--處存格--
         <h3>標題3</h3>
         <h4>標題4</h4>
         <h5>標題5</h5>
@@ -18,8 +19,33 @@
       
         <br><span>span : 行內元素的容器，和別人成行</span> <br>
         ex : <span>1</span><span>2</span><span>3</span>
+        <hr>
 
-       <!-- <img src="檔名/路徑/網址">-->
+        <!--  <tr> 行列  -->
+        <!--  <td> 儲存格  -->
+        <!--  border 框線  -->
+        <!--  cellpadding 儲存格內填充  -->
+        <!--  rowspan 向下合併儲存格  -->
+        <!--  colspan 向上合併儲存格  -->
+
+        <table border="1" cellpadding="5">
+          <tr><td>1</td><td>2</td><td>3</td></tr>
+          <tr><td>4</td><td>5</td><td>6</td></tr>
+          <tr><td>7</td><td>8</td><td>9</td></tr>
+
+        </table>
+        <br>
+         <table border="1" cellpadding="5">
+          <tr><td rowspan="3">1<br>1</td><td>22</td><td colspan="2">3</td></tr>
+          <tr><td>4</td><td>5</td><td>6</td></tr>
+          <tr><td>7</td><td rowspan="2" colspan="2">8</td></tr>
+          <tr><td>9</td></tr>
+
+        </table>
+
+
+      
+        <!-- <img src="檔名/路徑/網址">-->
         <hr><img src="picture/GitHub-logo.png" width="300" >  <hr> 
        
         <!--超連結--> 
@@ -32,6 +58,9 @@
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <p>文件底部</p>
     <p><a href="#top">  回到上方</a></p>
+    
+
+
     </body> 
 
 </html>
