@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>1012-css漸層與動畫</title>
+        <style>
+            div{
+                width: 200px;
+                height: 100px;
+                margin-bottom: 10px;
+            }
+
+            #a1{
+                background-image: linear-gradient(270deg,rgb(87, 208, 255),rgb(194, 69, 252)); /*背景圖片 : 線性漸層*/ /*deg : 圓周角改變漸層方向*/
+                                               /*to 方向--改變漸層方向 ex :　(to right,rgb(87, 208, 255),rgb(194, 69, 252))*/
+            }
+            #a2{
+                background-image: radial-gradient(circle,rgb(255, 255, 1),rgb(54, 45, 45));  /*背景圖片 : 輻射漸層*/  /*circle--強制為圓形*/
+            }
+            #a3{
+                background-image: radial-gradient(rgb(255, 255, 1),rgb(54, 45, 45));  /*背景圖片 : 輻射漸層*/ 
+            }
+            #a4{
+                background-image: conic-gradient(rgb(83, 255, 226),rgb(216, 162, 162),rgb(167, 179, 245),rgb(121, 255, 219));  /*背景圖片 : 圓錐漸層*/ 
+            }
+            #a5{
+                background-image: conic-gradient(from 90deg,rgb(83, 255, 226),rgb(216, 162, 162),rgb(167, 179, 245),rgb(121, 255, 219));  /*背景圖片 : 圓錐漸層*/ 
+            }
+            #a6{
+                background-image: linear-gradient(90deg,rgb(253, 183, 255)35%,rgb(255, 218, 137)35%,rgb(255, 192, 192)65%,rgb(186, 255, 234)); /*設定顏色位子*/                                              
+            }
+            #a7{
+                background-image: radial-gradient(rgb(253, 183, 255)35%,rgb(255, 218, 137)35%,rgb(255, 192, 192)65%,rgb(186, 255, 234)); /*設定顏色位子*/                                              
+            }
+            #a8{
+                background-image: conic-gradient(rgb(253, 183, 255)35%,rgb(255, 218, 137)35%,rgb(255, 192, 192)65%,rgb(186, 255, 234)); /*設定顏色位子*/                                              
+            }
+            #a9{
+                background-image: repeating-linear-gradient(125deg,rgb(255, 195, 154) 3%,rgb(43, 241, 225) 35%,rgb(236, 120, 227) 40%); 
+            }
+            #a10{
+                background-image: repeating-radial-gradient(rgb(255, 195, 154) 3%,rgb(43, 241, 225) 35%,rgb(236, 120, 227) 40%); 
+            }
+            #a11{
+                background-image: repeating-conic-gradient(rgb(255, 195, 154) 30%,rgb(43, 241, 225) 35%,rgb(236, 120, 227) 40%); 
+            }
+            #b1{
+                background-image: repeating-radial-gradient(rgb(17, 17, 17)0%,rgb(2, 177, 25)20%,rgb(252, 8, 8)40%,rgb(81, 175, 3)60%,rgb(48, 6, 155)100%);
+            }         
+            
+            @keyframes k1{
+                9%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)60%,rgb(194, 69, 252));}
+                18%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)50%,rgb(194, 69, 252));}
+                27%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)40%,rgb(194, 69, 252));}
+                45%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)30%,rgb(194, 69, 252));}
+                54%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)50%,rgb(194, 69, 252));}
+                60%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)70%,rgb(194, 69, 252));}
+                70%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)90%,rgb(194, 69, 252));}
+                79%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)60%,rgb(194, 69, 252));}
+                85%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)40%,rgb(194, 69, 252));}
+                91%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)50%,rgb(194, 69, 252));}
+                100%{background-image: linear-gradient(270deg,rgb(250, 19, 11),rgb(87, 208, 255)60%,rgb(194, 69, 252));}
+
+            }
+            #f1{
+                animation: k1 2s infinite linear ; 
+                /*動畫名稱/一組播放的時間/播放次數/線性速度(固定)*/
+            }
+
+        </style>
+ 
+    </head>
+
+
+
+
+
+    <body>
+        <div id="a1"></div>
+        <div id="a2"></div>
+        <div id="a3"></div>
+        <div id="a4"></div>
+        <div id="a5"></div>
+        <hr>
+        <div id="a6"></div>
+        <div id="a7"></div>
+        <div id="a8"></div>
+        <hr>
+        <div id="a9"></div>
+        <div id="a10"></div>
+        <div id="a11"></div>
+        <hr>
+        <div id="b1"></div> 
+        <hr>
+        <div id="f1"></div>    
+    </body>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
