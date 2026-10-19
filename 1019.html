@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1019-位置</title>
+    <style>
+
+        /*position: relative 是相對於自己原本的座標
+          position: absolute 是相對於{有設定position的副容器 或body}的絕對座標
+          可設定 top/left 或 bottom/right
+          z-index 為圖層數字大在上;相同時先生成的在上*/
+
+
+        #dad{
+            border: 1px solid black;
+            width: 400px;;
+            height: 400px;
+            position: relative;            
+        }       
+        
+        #d1{
+            border: 1px solid red;
+            width:100px;
+            height: 100px;
+            position: relative;    
+            z-index: 10;                     
+            background-color: hsla(0deg,100%,50%,1);
+        }
+        
+        #d2{
+            border: 1px solid blue;
+            width:100px;
+            height: 100px;
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+        
+        #d3{
+            border: 1px solid palevioletred;
+            width:100px;
+            height: 100px;
+            background-color: hsla(120deg,100%,50%,0.7); 
+            z-index: 9;           
+            position: absolute;
+            top: 10px;
+            left: 50px;
+        }            
+               
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        #mom{
+            border: 2px dashed black;
+            width:100px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }                   
+        
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+    <div id="dad">
+            <div id="d1"></div>
+            <div id="d2"></div>
+            <div id="d3"></div>
+            <div id="d4"></div>
+    </div>
+    <div id="mom"></div>    
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>
