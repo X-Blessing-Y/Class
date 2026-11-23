@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>1102-JaveScript輸出與輸入</title>
+    <style>
+        #board{
+            width: 600px;
+            height: 600px;
+            border: solid 1px black;
+            position: relative;
+        }
+        .target{
+            border-radius: 50%;
+            position: absolute;
+
+        }
+        #time{
+            width: 603px;
+            height: 20px;
+            background-color: rgb(73, 18, 18);
+        }
+
+
+    </style>
+    <script>
+        function getElm(id){
+            return document.getElementById(id);
+        }
+        function getRandom(min,max){
+            return Math.floor(Math.random()*(max - min +1))+min;
+        }
+        function getRGB(){
+            var r = getRandom(50,250);
+            var g = getRandom(50,250);
+            var b = getRandom(50,250);
+            return `rgb(${r},${g}),${b})`;
+        }
+
+        function newtarget(){
+            var t = document.createElement("div");
+            t.className="target"
+            t.w=getradom(10,50);
+            t.h=t.w;
+            t.x=getRandom(0, board.w - t.w);
+            t.y=getRandom(0, board.w - t.h);
+            t.style.width=`${t.w}px`;
+            t.style.height=`${t.h}px`;
+            t.style.left=`${t.x}px`;
+            t.style.top=`${t.y}px`;
+            t.style.backgroundColor=getRGB
+            
+        }
+        function game_start(){
+
+        }
+        function game_stop(){
+
+        }       
+        function game_init(){
+            game.board.w=600;
+            game.board.h=600;
+
+        }
+
+    </script>
+</head>
+<body>
+    <div id="time"></div>
+    <div id="board">
+        <div class="target"></div>
+        <div class="target"></div>
+    </div>
+    <button onclick="game_start();">Game start</button>
+
+
+
+
+</body>
+</html>
