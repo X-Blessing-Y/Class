@@ -1,80 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>1102-JaveScript輸出與輸入</title>
-    <style>
-        #board{
-            width: 600px;
-            height: 600px;
-            border: solid 1px black;
-            position: relative;
-        }
-        .target{
-            border-radius: 50%;
-            position: absolute;
+	<meta charset="UTF-8">
+	<title>1123-元素的生成與消失</title>
+	<style>
+		#board {
+			width:600px;
+			height:600px;
+			border: solid 1px black;
+			position: relative;
+			margin:2px 0px;
+		}
+		.target {
+			position: absolute;
+			border-radius: 50%;
+		}
+		#timebar {
+			width:602px;
+			height:20px;
+			background-color: green;
+		}
+	</style>
+	<script>
+		var game_playing=false;
+		function getElm(id) {
+			return document.getElementById(id);
+		}
+		function getRandom(min,max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+		function getRGB() {
+			var r=getRandom(50,250);
+			var g=getRandom(50,250);
+			var b=getRandom(50,250);
+			return `rgb(${r},${g},${b})`;
+		}
+		function newTarget() {
+			var t=document.createElement("div");
+			t.className="target";
+			t.score=getRandom(1,5);
+			t.h=t.w=(7 - t.score) * 10;
+			t.x=getRandom(0, board.w - t.w);
+			t.y=getRandom(0, board.h - t.h);
+			t.style.width=`${t.w}px`;
+			t.style.height=`${t.h}px`;
+			t.style.left=`${t.x}px`;
+			t.style.top=`${t.y}px`;
+			t.style.backgroundColor=getRGB();
+			t.addEventListener("click",hit);
+			getElm("board").appendChild(t);
+		}
+		function hit() {
+			if(!game_playing) return;
+			var elm=event.target;
+			game_score += elm.score;
+			getElm("score").innerHTML=game_score;
+			elm.remove();
 
-        }
-        #time{
-            width: 603px;
-            height: 20px;
-            background-color: rgb(73, 18, 18);
-        }
-
-
-    </style>
-    <script>
-        function getElm(id){
-            return document.getElementById(id);
-        }
-        function getRandom(min,max){
-            return Math.floor(Math.random()*(max - min +1))+min;
-        }
-        function getRGB(){
-            var r = getRandom(50,250);
-            var g = getRandom(50,250);
-            var b = getRandom(50,250);
-            return `rgb(${r},${g}),${b})`;
-        }
-
-        function newtarget(){
-            var t = document.createElement("div");
-            t.className="target"
-            t.w=getradom(10,50);
-            t.h=t.w;
-            t.x=getRandom(0, board.w - t.w);
-            t.y=getRandom(0, board.w - t.h);
-            t.style.width=`${t.w}px`;
-            t.style.height=`${t.h}px`;
-            t.style.left=`${t.x}px`;
-            t.style.top=`${t.y}px`;
-            t.style.backgroundColor=getRGB
-
-        }
-        function game_start(){
-
-        }
-        function game_stop(){
-
-        }       
-        function game_init(){
-            game.board.w=600;
-            game.board.h=600;
-
-        }
-
-    </script>
+			if(game_level < 10 && Math.floor(game_score/50) >= game_level) {
+				game_level++;
+				clearInterval(target_timer);
+				target_timer=setInterval(newTarget,1100 - game_level * 100);
+			}
+		}
+		function game_init() {
+			board={w:600,h:600};
+			game_score=0;
+			game_level=1;
+			game_time_ms=60000;
+		}
+		function game_start() {
+			if(game_playing) return;
+			game_playing=true;
+			game_init();
+			game_timer=setInterval(()=>{
+				game_time_ms-=100;
+				getElm("timebar").style.width=`${game_time_ms/100}px`;
+				if(game_time_ms<=0) game_stop();
+			},100);
+			target_timer=setInterval(newTarget,1000);
+			getElm("bgm").play();
+		}
+		function game_stop() {
+			if(!game_playing) return;
+			game_playing=false;
+			clearInterval(target_timer);
+			clearInterval(game_timer);
+			getElm("bgm").pause();
+		}
+	</script>
 </head>
 <body>
-    <div id="time"></div>
-    <div id="board">
-        <div class="target"></div>
-        <div class="target"></div>
-    </div>
-    <button onclick="game_start();">Game start</button>
-
-
-
-
+	<div id="timebar"></div>
+	<div id="board">
+		<div class="target" onclick="hit()"></div>
+	</div>
+	<audio loop id="bgm"><source src="bgm.mp3"></audio>
+	<button onclick="game_start();">遊戲開始</button>
+	<button onclick="game_stop();">遊戲結束</button>
+	分數：<span id="score">0</span>分
 </body>
 </html>
